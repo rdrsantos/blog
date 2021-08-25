@@ -1,0 +1,28 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/nav.ejs') %>
+
+<div class="container">
+  <h2>Posts</h2>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.forEach(post => { %>
+       <tr>
+         <td><%= post.title %> </td>
+         <td>
+           <a href="">Editar</a>
+           <a href="">Excluir</a>
+         </td>
+       </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include ('../partials/footer.ejs') %>

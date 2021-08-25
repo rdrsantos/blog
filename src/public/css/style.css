@@ -34,6 +34,28 @@ body {
   }
 }
 
+.post {
+  margin-top: 50px;
+}
+
+.post .title {
+  background-color: #000500;
+  text-align: center;
+  color: #473BF0;
+  padding: 40px 0;
+  margin-bottom: 20px;
+}
+
+.post .category {
+  background-color: #473BF0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.post .body {
+  margin-top: 30px;
+}
+
 /* header */
 .header {
   width: 100%;
@@ -125,7 +147,7 @@ body {
   grid-gap: 20px;
 }
 
-.posts_area .posts .post {
+.posts_area .posts .post_item {
   background-color: #473BF0;
   text-align: center;
   padding: 20px;
@@ -141,7 +163,7 @@ body {
           align-items: center;
 }
 
-.posts_area .posts .post a {
+.posts_area .posts .post_item a {
   color: #000500;
   font-size: 1.3rem;
 }

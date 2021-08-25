@@ -5,14 +5,15 @@
   <nav class="categories_nav">
     <h2>Categorias</h2>
     <ul>
+      <li><a href="/">Todos</a></li>
       <% categories.forEach(category => { %>
-        <li><a><%= category.title %></a></li>
+        <li><a href="/posts/<%= category.tag %> "><%= category.title %></a></li>
       <% }) %>
     </ul>
   </nav>
   <div class="posts">
     <% posts.forEach(post => { %>
-      <div class="post">
+      <div class="post_item">
         <h2><a href="/post/<%= post.slug %> "><%= post.title %></a></h2>
       </div>
     <% }) %>
