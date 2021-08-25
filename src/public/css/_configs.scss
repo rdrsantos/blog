@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap');
+/* variaveis */
+$bg-color: #000500;
+$secondary-color: #473BF0;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, button{
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+ul{
+  list-style: none;
+}
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@mixin device($size) {
+  @if $size == s {
+    @media screen and (max-width: 480px) {
+      @content;
+    }
+  } @else if $size == m {
+    @media screen and (max-width: 760px) {
+      @content;
+    }
+  }
+}
+
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  @include device(m){
+    padding: 0 10px;
+  }
+}
