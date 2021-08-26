@@ -56,6 +56,37 @@ body {
   margin-top: 30px;
 }
 
+.form {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form input, .form select, .form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #473BF0;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form button {
+  background-color: #473BF0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
 /* header */
 .header {
   width: 100%;

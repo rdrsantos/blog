@@ -8,4 +8,5 @@ routes.get('/post/:slug', PostController.post);
 routes.get('/posts/:tag', PostController.postsByCategorie);
 
 routes.get('/admin', PostController.getAdmin)
+routes.get('/admin/posts/new', PostController.new)
 export default routes;

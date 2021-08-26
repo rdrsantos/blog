@@ -1,0 +1,22 @@
+.form{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  label{
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input, select, textarea{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  button{
+    background-color: $secondary-color;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+}

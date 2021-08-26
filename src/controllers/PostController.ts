@@ -28,6 +28,10 @@ class PostController {
     res.render('admin/', {posts});
   }
 
+  async new(req: Request, res: Response){
+    const categories = await Category.get()
+    res.render('admin/posts/new', {categories});
+  }
 
 }
 
