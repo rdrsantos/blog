@@ -1,0 +1,41 @@
+.posts_title{
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.new_btn{
+  padding: 10px 30px;
+  background-color: $secondary-color;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.table{
+  width: 100%;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+.table thead tr {
+  text-align: left;
+  color: #fff;
+}
+
+.table tr th{
+  padding: 10px;
+  background-color: $secondary-color;
+}
+.table tr td {
+  padding: 15px;
+}
+
+.table .btn{
+  padding: 10px;
+  border: none;
+}
+.table .btn.editar{
+  background-color: darkorange;
+}
+.table .btn.excluir{
+  background-color: red;
+}

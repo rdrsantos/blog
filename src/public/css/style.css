@@ -87,11 +87,57 @@ body {
   border-radius: 5px;
 }
 
+.posts_title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.new_btn {
+  padding: 10px 30px;
+  background-color: #473BF0;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.table {
+  width: 100%;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+.table thead tr {
+  text-align: left;
+  color: #fff;
+}
+
+.table tr th {
+  padding: 10px;
+  background-color: #473BF0;
+}
+
+.table tr td {
+  padding: 15px;
+}
+
+.table .btn {
+  padding: 10px;
+  border: none;
+}
+
+.table .btn.editar {
+  background-color: darkorange;
+}
+
+.table .btn.excluir {
+  background-color: red;
+}
+
 /* header */
 .header {
   width: 100%;
   background-color: #000500;
   padding: 10px 0;
+  margin-bottom: 50px;
 }
 
 .header .nav {
@@ -122,6 +168,11 @@ body {
   .header .nav .logo a {
     font-size: 1.4rem;
   }
+}
+
+.header .nav .menu a {
+  color: #473BF0;
+  padding: 10px;
 }
 
 .header .nav .btn_login {

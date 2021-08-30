@@ -1,12 +1,14 @@
 @import 'configs';
 @import 'post';
 @import 'posts/new';
+@import 'admin/posts';
 
 /* header */
 .header{
   width: 100%;
   background-color: $bg-color;
   padding: 10px 0;
+  margin-bottom: 50px;
   .nav{
     display: flex;
     justify-content: space-between;
@@ -20,6 +22,10 @@
       @include device(s){
         font-size: 1.4rem;
       }
+    }
+    .menu a{
+      color: $secondary-color;
+      padding: 10px;
     }
     .btn_login{
       background-color: $secondary-color;

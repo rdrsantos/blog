@@ -1,13 +1,14 @@
 <%- include ('../partials/header.ejs') %>
-<%- include ('../partials/nav.ejs') %>
+<%- include ('./partials/nav.ejs') %>
 
 <div class="container">
-  <h2>Posts</h2>
-
-  <table border="1">
+  <h2 class="posts_title">Posts</h2>
+  <a class="new_btn" href="/admin/posts/new">Novo Post</a>
+  <table class="table">
     <thead>
       <tr>
         <th>Titulo</th>
+        <th>Categoria</th>
         <th>Ações</th>
       </tr>
     </thead>
@@ -15,9 +16,13 @@
       <% posts.forEach(post => { %>
        <tr>
          <td><%= post.title %> </td>
+         <td><%= post.category_name %> </td>
          <td>
-           <a href="">Editar</a>
-           <a href="">Excluir</a>
+           <a href="/admin/posts/edit/<%= post.id %>" class="btn editar">Editar</a>
+           <form action="/admin/posts/delete" method="post" style="display: inline;" onsubmit="confirmDel(event, this)">
+              <input type="hidden" name="id" value="<%= post.id %>">
+              <button class="btn excluir">Excluir</button>
+           </form>
          </td>
        </tr>
       <% }) %>
@@ -25,4 +30,13 @@
   </table>
 </div>
 
+<script>
+  function confirmDel(e, form){
+    e.preventDefault();
+    const res = confirm('Deseja excluir este post?');
+    if(res){
+      form.submit();
+    }
+  }
+</script>
 <%- include ('../partials/footer.ejs') %>

@@ -3,18 +3,18 @@
 
 <div class="container">
   <h2>Adicionar novo post</h2>
-  <form action="" class="form">
+  <form action="/admin/posts/add" method="POST" class="form">
     <label for="title">Titulo</label>
     <input type="text" id="title" name="title">
     <label for="category">Categoria</label>
-    <select name="category" id="category">
+    <select name="category" id="category" name="category">
       <option selected disabled>Selecionar</option>
       <% categories.forEach(({title, id}) => { %>
        <option value="<%= id %>"><%= title %> </option>
       <% }) %>
     </select>
     <textarea name="body" id="body"></textarea>
-    <button>Cadastrar</button>
+    <button type="submit">Cadastrar</button>
   </form>
 </div>
 

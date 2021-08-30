@@ -1,6 +1,7 @@
 import {Request, Response} from 'express';
 import Post from '../models/Post';
 import Category from '../models/Category';
+import slugify from 'slugify';
 
 class PostController {
 
@@ -12,7 +13,7 @@ class PostController {
 
   async post(req: Request, res: Response){
     const {slug} = req.params;
-    const post = await Post.getPost(slug);
+    const post = await Post.getBySlug(slug);
     res.render('post', {post});
   }
 
@@ -24,15 +25,45 @@ class PostController {
   }
 
   async getAdmin(req: Request, res: Response){
-    const posts = await Post.get();
+    const posts = await Post.adminGet();
     res.render('admin/', {posts});
   }
 
-  async new(req: Request, res: Response){
+  async addPage(req: Request, res: Response){
     const categories = await Category.get()
     res.render('admin/posts/new', {categories});
   }
 
+  async add(req: Request, res: Response){
+    const {title, body, category: category_id} = req.body;
+    console.log(req.body) 
+    let slug = slugify(title);
+    await Post.new(title, slug, body, category_id);
+    res.redirect('/admin');
+  }
+
+  async editPage(req: Request, res: Response){
+    const { id } = req.params;
+    const post = await Post.getById(Number(id));
+    const categories = await Category.get();
+    res.render('admin/posts/edit', {post, categories})
+  }
+
+  async update(req: Request, res: Response){
+    const {id, title, category, body} = req.body;
+    await Post.update(Number(id), title, slugify(title), body, category);
+    res.redirect('/admin');
+  }
+
+  async delete(req: Request, res: Response){
+    const {id} = req.body;
+    const result = await Post.delete(Number(id));
+    if(result.status){
+      res.redirect('/admin');
+    }else{
+      res.status(400).send('Ocorreu um erro')
+    }
+  }
 }
 
 export default new PostController;
