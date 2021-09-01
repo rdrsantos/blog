@@ -31,15 +31,19 @@ class PostController {
 
   async addPage(req: Request, res: Response){
     const categories = await Category.get()
-    res.render('admin/posts/new', {categories});
+    res.render('admin/posts/new', {categories, error: false});
   }
 
   async add(req: Request, res: Response){
     const {title, body, category: category_id} = req.body;
-    console.log(req.body) 
     let slug = slugify(title);
-    await Post.new(title, slug, body, category_id);
-    res.redirect('/admin');
+    const result = await Post.new(title, slug, body, category_id);
+    if(result.status){
+      res.redirect('/admin');
+    }else{
+      const categories = await Category.get()
+      res.render('admin/posts/new', {categories, error: result.err});
+    }    
   }
 
   async editPage(req: Request, res: Response){

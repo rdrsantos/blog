@@ -1,0 +1,40 @@
+<%- include ('../../partials/header.ejs') %>
+<%- include ('../partials/nav.ejs') %>
+
+<div class="container">
+  <h2 class="posts_title">Categorias</h2>
+  <a class="new_btn" href="/admin/categories/new">Nova Categoria</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.forEach(category => { %>
+       <tr>
+         <td><%= category.title %> </td>
+         <td>
+           <a href="/admin/categories/edit/<%= category.id %>" class="btn editar">Editar</a>
+           <form action="/admin/categories/delete" method="post" style="display: inline;" onsubmit="confirmDel(event, this)">
+              <input type="hidden" name="id" value="<%= category.id %>">
+              <button class="btn excluir">Excluir</button>
+           </form>
+         </td>
+       </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function confirmDel(e, form){
+    e.preventDefault();
+    const res = confirm('Deseja excluir este post?');
+    if(res){
+      form.submit();
+    }
+  }
+</script>
+<%- include ('../../partials/footer.ejs') %>

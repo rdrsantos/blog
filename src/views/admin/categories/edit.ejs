@@ -1,0 +1,14 @@
+<%- include ('../../partials/header.ejs') %>
+<%- include ('../partials/nav.ejs') %>
+
+<div class="container">
+  <h2>Adicionar nova Categoria</h2>
+  <form action="/admin/categories/updt" method="POST" class="form">
+    <input type="hidden" name="id" value="<%= category.id %> ">
+    <label for="title">Titulo</label>
+    <input type="text" id="title" name="title" value="<%= category.title %> ">
+    <button type="submit">Cadastrar</button>
+  </form>
+</div>
+
+<%- include ('../../partials/footer.ejs') %>

@@ -35,9 +35,10 @@ class Posts{
     try{
       const post = await db('posts').innerJoin('categories', 'posts.category_id', 'categories.id')
       .select('posts.*', 'categories.title as cat_name ').where({slug});
-      return post[0];
+      return post.length ? post[0] : undefined;
     } catch(error){
       console.log(error);
+      return undefined;
     }
   }
 
@@ -51,12 +52,18 @@ class Posts{
   }
 
   async new(title: string, slug: string, body: string, category_id: number){
-    try {
-      await db('posts').insert({title, slug, body, category_id});
-      return true;
-    } catch (error) {
-      console.log(error);
-      return undefined;
+    title = title.trim();
+    const post = await this.getBySlug(slug);
+    if(!post){
+      try {
+        await db('posts').insert({title, slug, body, category_id});
+        return  {status: true};
+      } catch (error) {
+        console.log(error);
+        return  {status: false};
+      }
+    }else{
+      return {status: false, err: 'Já existe um post com o mesmo titulo'}
     }
   }
 
