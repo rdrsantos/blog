@@ -7,7 +7,7 @@ class PostController {
 
   async get(req: Request, res: Response){
     const posts = await Post.get();
-    const categories = await Category.get()
+    const categories = await Category.get();
     res.render('index', {posts, categories});
   }
 
