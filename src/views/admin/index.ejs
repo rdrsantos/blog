@@ -5,7 +5,7 @@
   <h2 class="posts_title">Posts | <%= total %> </h2>
   <a class="new_btn" href="/admin/posts/new">Novo Post</a>
   <table class="table" id="myTable">
-    <!-- <thead>
+    <thead>
       <tr>
         <th>Titulo</th>
         <th>Categoria</th>
@@ -26,13 +26,10 @@
          </td>
        </tr>
       <% }) %>
-    </tbody> -->
+    </tbody>
   </table>
 </div>
 
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="/js/admin/posts/index.js"></script>
 <script>
   function confirmDel(e, form){
     e.preventDefault();
