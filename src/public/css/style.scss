@@ -42,22 +42,21 @@
 }
 
 .posts_area{
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 20px;
   .categories_nav{
     padding-top: 40px;
-    border-right: 1px solid #0005;
+    border-bottom: 1px solid #0005;
     h2{
       margin-bottom: 40px;
     }
     li{
+      display: inline-block;
       margin-bottom: 20px;
       a{
         padding: 10px;
         transition: .3s;
         &:hover{
-          color: $secondary-color;
+          background-color: $secondary-color;
+          color: #fff;
         }
       }
     }
@@ -70,15 +69,25 @@
     .post_item{
       background-color: $secondary-color;
       text-align: center;
-      padding: 20px;
+      color: #fff;
+      font-size: 1.3rem;
+      display: block;
+      padding: 50px 0;
       border-radius: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      a{
-        color: $bg-color;
-        font-size: 1.3rem;
-      }
+      
+    }
+    .no-posts{
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
     }
   }
+}
+
+.btn-paginate{
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: $bg-color;
+  color: #fff;
+  margin-top: 10px;
 }

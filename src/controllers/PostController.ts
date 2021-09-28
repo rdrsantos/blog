@@ -6,7 +6,7 @@ import slugify from 'slugify';
 class PostController {
 
   async get(req: Request, res: Response){
-    const posts = await Post.get();
+    const posts = await Post.get(10);
     const categories = await Category.get();
     res.render('index', {posts, categories});
   }
@@ -26,7 +26,7 @@ class PostController {
 
   async getAdmin(req: Request, res: Response){
     const posts = await Post.adminGet();
-    res.render('admin/', {posts});
+    res.render('admin/', {posts, total: posts.length});
   }
 
   async addPage(req: Request, res: Response){

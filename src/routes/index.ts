@@ -3,6 +3,7 @@ import PostController from '../controllers/PostController';
 import CategoryController from '../controllers/CategoryController';
 import LoginController from '../controllers/LoginController';
 import auth from '../middlewares/auth';
+import Pagination from '../controllers/Pagination';
 const routes = express.Router();
 
 routes.get('/', PostController.get);
@@ -28,5 +29,7 @@ routes.post('/admin/categories/updt', auth ,CategoryController.update)
 routes.get('/login', LoginController.index)
 routes.post('/auth', LoginController.auth)
 routes.get('/logout', LoginController.logout)
+
+routes.get('/page/:page', Pagination.paginate)
 
 export default routes;

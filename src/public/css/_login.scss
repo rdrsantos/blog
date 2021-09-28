@@ -1,3 +1,28 @@
+$bg-color: #000500;
+$secondary-color: #473BF0;
 .form_login{
-  background-color: red
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 40px 10px;
+  label{
+    font-size: 18px;
+    font-weight: bold;
+    color: $secondary-color;
+  }
+  input{
+    padding: 10px 5px;
+    font-size: 20px;
+    margin: 10px 0 20px;
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+  }
+  button{
+    padding: 15px;
+    background-color: $bg-color;
+    color: $secondary-color;
+    border: none;
+  }
 }

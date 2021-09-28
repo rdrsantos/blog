@@ -21,6 +21,7 @@ ul {
 
 body {
   font-family: 'Montserrat', sans-serif;
+  padding-bottom: 20px;
 }
 
 .container {
@@ -139,6 +140,41 @@ body {
   background-color: red;
 }
 
+.form_login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 60px;
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 40px 10px;
+}
+
+.form_login label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #473BF0;
+}
+
+.form_login input {
+  padding: 10px 5px;
+  font-size: 20px;
+  margin: 10px 0 20px;
+  border: 2px solid #473BF0;
+  border-radius: 5px;
+}
+
+.form_login button {
+  padding: 15px;
+  background-color: #000500;
+  color: #473BF0;
+  border: none;
+}
+
 /* header */
 .header {
   width: 100%;
@@ -196,17 +232,9 @@ body {
           box-shadow: 1px 1px 4px #fff;
 }
 
-.posts_area {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 4fr;
-      grid-template-columns: 1fr 4fr;
-  grid-gap: 20px;
-}
-
 .posts_area .categories_nav {
   padding-top: 40px;
-  border-right: 1px solid #0005;
+  border-bottom: 1px solid #0005;
 }
 
 .posts_area .categories_nav h2 {
@@ -214,6 +242,7 @@ body {
 }
 
 .posts_area .categories_nav li {
+  display: inline-block;
   margin-bottom: 20px;
 }
 
@@ -224,7 +253,8 @@ body {
 }
 
 .posts_area .categories_nav li a:hover {
-  color: #473BF0;
+  background-color: #473BF0;
+  color: #fff;
 }
 
 .posts_area .posts {
@@ -239,21 +269,24 @@ body {
 .posts_area .posts .post_item {
   background-color: #473BF0;
   text-align: center;
-  padding: 20px;
+  color: #fff;
+  font-size: 1.3rem;
+  display: block;
+  padding: 50px 0;
   border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.posts_area .posts .post_item a {
-  color: #000500;
-  font-size: 1.3rem;
+.posts_area .posts .no-posts {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+}
+
+.btn-paginate {
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: #000500;
+  color: #fff;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,10 +2,10 @@ import db from '../database';
 
 class Posts{
 
-  async get(){
+  async get(limit: number){
     try{
-      const posts = await db('posts').select().orderBy('id', 'desc');
-      return posts;
+      const posts = await db('posts').select().orderBy('id', 'desc').limit(limit);
+      return posts.length ? posts : undefined;
     } catch(error){
       console.log(error);
     }
@@ -45,7 +45,7 @@ class Posts{
   async postsByCategory(category: string){
     try {
       const posts = await db('posts').select('posts.*').innerJoin('categories', 'posts.category_id', 'categories.id').where('categories.tag', category);
-      return posts;
+      return (posts.length) ? posts : undefined;
     } catch (error) {
       console.log(error);
     }
