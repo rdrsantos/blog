@@ -18,9 +18,28 @@
         <% } %>
       <% }) %>
     </select>
-    <textarea name="body" id="body"><%- post.body %> </textarea>
+    <label for="body">Conteudo</label>
+    <textarea name="body" id="body"></textarea>
     <button type="submit">Cadastrar</button>
   </form>
 </div>
+<div class="body_content" style="display: none;">
+  <%- post.body %> 
+</div>
+<script src="https://cdn.tiny.cloud/1/etrsjmncyyzpvyy7a1wovpdcugxdsueb039avcwuh4v9slbm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: '#body',
+    plugins: 'advlist link image lists code',
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+    language: 'pt_BR',
+    height: 500,
+    setup: function (editor) {
+      editor.on('init', function (e) {
+        editor.setContent(document.querySelector(".body_content").innerHTML);
+      });
+    }
+  });
+</script>
 
 <%- include ('../../partials/footer.ejs') %>

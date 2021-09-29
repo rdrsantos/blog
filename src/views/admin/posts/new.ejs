@@ -18,9 +18,20 @@
        <option value="<%= id %>"><%= title %> </option>
       <% }) %>
     </select>
+    <label for="body">Conteudo</label>
     <textarea name="body" id="body"></textarea>
     <button type="submit" id="btnNew">Cadastrar</button>
   </form>
 </div>
 <script src="/js/admin/posts/new.js"></script>
+<script src="https://cdn.tiny.cloud/1/etrsjmncyyzpvyy7a1wovpdcugxdsueb039avcwuh4v9slbm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: '#body',
+    plugins: 'advlist link image lists code',
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+    language: 'pt_BR',
+    height: 500
+  });
+</script>
 <%- include ('../../partials/footer.ejs') %>

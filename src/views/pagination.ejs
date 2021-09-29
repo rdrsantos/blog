@@ -11,6 +11,18 @@
       <% }) %>
     </ul>
   </nav>
+  <div style="margin: 20px 0 0;">
+    <% if (page == 2) { %>
+      <a href="/" class="btn-paginate">Anterior</a>
+    <% } else {%>
+      <a href="/page/<%= page - 1%>" class="btn-paginate">Anterior</a>
+    <% } %>
+
+    <% if (next) { %>
+      <a href="/page/<%=page  + 1 %>" class="btn-paginate">prox</a>
+    <% } %>
+    <span style="margin-left: 30px;" class="btn-paginate">Pagina <%= page %> de <%= lastPage %> </span>
+  </div>
   <div class="posts">
     <% if (posts) { %>
       <% posts.forEach(post => { %>
